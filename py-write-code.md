@@ -5,7 +5,8 @@ It is a good practice that you create a branch for each of the new feature/fixes
 
 ### 2. main.py
 your main.py should look something like below:
-```
+
+```python
 import sys,os
 parent_folder_path = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(parent_folder_path)
@@ -21,26 +22,28 @@ class HelloWorld(FlowLauncher):
     def query(self, query):
         return [
             {
-                "Title": "Hello World, this is where title goes. {}".format(('Your query is: ' + query , query)[query == '']),
-                "SubTitle": "This is where your subtitle goes, press enter to open Flow's url",
-                "IcoPath": "Images/app.png",
-                "JsonRPCAction": {
+                "title": "Hello World, this is where title goes. {}".format(('Your query is: ' + query , query)[query == '']),
+                "subTitle": "This is where your subtitle goes, press enter to open Flow's url",
+                "icoPath": "Images/app.png",
+                "jsonRPCAction": {
                     "method": "open_url",
                     "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher"]
-                }
+                },
+                "score": 0
             }
         ]
 
     def context_menu(self, data):
         return [
             {
-                "Title": "Hello World Python's Context menu",
-                "SubTitle": "Press enter to open Flow the plugin's repo in GitHub",
-                "IcoPath": "Images/app.png",
-                "JsonRPCAction": {
+                "title": "Hello World Python's Context menu",
+                "subTitle": "Press enter to open Flow the plugin's repo in GitHub",
+                "icoPath": "Images/app.png", # related path to the image
+                "jsonRPCAction": {
                     "method": "open_url",
                     "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher.Plugin.HelloWorldPython"]
-                }
+                },
+                "score" : 0
             }
         ]
 
@@ -72,7 +75,10 @@ This method creates a context menu for your results, where the user can carry ou
 
 To attach a method to your context menu result, do the same as for normal results where you define a JsonRPCAction item with the method and parameters you want to call and pass through. In this case the context menu will simply open the HelloWorldPython plugin's GitHub repo.
 
-### 6. Your plugin.json
+### 6 Result score
+The `score` field provides the ability to assign a weight to your score, the higher the score is, the higher the result from the plugin would show in flow's result list. The range in which you assign the score is usually between 0-100. You can keep it as 0 if your plugin generally uses an action keyword to trigger, but if you are using a global action keyword - `*` then the average weight for a plugin would be 50. Additionally users can also tweak the score via Flow's plugin setting as well.
+
+### 7. Your plugin.json
 
 You will also need to if not yet already, create a plugin.json file that will instruct Flow on how to load your plugin.
 
