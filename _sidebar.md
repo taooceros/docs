@@ -1,7 +1,18 @@
 - [**Introduction**](/README.md)
 - [**Usage Tips**](/usage-tips.md)
-- [**JSON RPC**](/json-rpc.md)
 - [**Plugin Directory**](/plugins.md)
-- [**Porting Plugins**](/port-plugins.md)
-- [**Develop C# Plugins**](/develop-csharp-plugins.md)
-- [**Develop Python Plugins**](/develop-py-plugins.md)
+- Plugin Development
+    - [**plugin.json**](/plugin.json.md)
+    - Dotnet Plugins
+      - [**Development Guide**](/develop-dotnet-plugins.md)
+      - [**API Reference**](API-Reference/)
+    - Python Plugins
+      - [**Before you start**](/py-develop-plugins.md) 
+      - [**Set up your project**](/py-setup-project.md)
+      - [**Write the code**](/py-write-code.md)
+      - [**Add your plugin to Flow**](/py-release-project.md)
+      - [**Plugin references**](/py-plugin-references.md)
+    - JSONRPC
+      - [**JSON RPC Introduction**](/json-rpc.md)
+    - [**Porting Plugins**](/port-plugins.md)
+- [**How To Create a Theme**](/how-to-create-a-theme.md)
